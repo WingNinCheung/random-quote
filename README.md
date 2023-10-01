@@ -1,32 +1,33 @@
-# Random Quote Project
+# Random Quote Project (Bonus Completed)
+This project aims to generate random quotes from an API (http://safetybelt.pythonanywhere.com/quotes/random) in <strong>every five seconds</strong>. While the quote is being retreived, it will show a diagonal screen wipe with a new and random color each time.
 
-## Time allotment
-This project should take under two hours. We obviously have no way to time you, but would prefer if you gave yourself a stopping time two hours after you start and just send over whatever you have.
-
-If you're not done in that window, that's okay. Feel free to explain where you were, what got you stuck, and where your next steps would be after your time ran out.
-
-Send your files to jneely@forio.com when you're finished.
+Note that there is about 10% of the time this API will fail. I designed a way to handle it. 
+I show my custom error message as a quote with my name. That might be the worst quotes you have ever seen.
 
 
-## Project requirements
-For this project, we want you to use an API to generate random quotes. While the quote is being retreived, we want to show a diagonal screen wipe with a new, random color each time. See the example here:
-
-https://youtu.be/uBtGr9XcUQc
-
-This is just an example and it does not have to look exactly like that. In fact, the quote section is pretty ugly and could be improved if you have time and an eye for design. If not, that's okay too.
-
-You can find the random quote API endpoint here:
-
-http://safetybelt.pythonanywhere.com/quotes/random
-
-Note that this API intentionally kind of sucks. It's pretty quick, but it does have an issue where it fails about 10% of the time. We can't fix the API, so we'll need to figure out a decent way to handle that.
-
-The HTML, CSS, and JavaScript are purely boilerplate to get you started. Feel free to change as much or as little of it as you would like.
+![Screen Shot 2023-09-30 at 5 42 54 PM](https://github.com/WingNinCheung/random-quote/assets/96600317/b7f788b3-17d0-42c5-bb59-3ce37a470ac0)
 
 
-## Bonus
-We also have another example where the user doesn't even have to click- the page automatically generates a new quote after a set amount of time (can be any length). If you're done with the above, feel free to tackle this part. It's not required and should be done only if you have time.
+## Basic Requirement
+For the basic reirement for this project, a new quote will be generated after an user clicks on the button instead of being automacially generated. 
+To see this, please do the following:
 
-Example:
+#### Uncomment this code :
+- index.html:
+```
+<button id="generate">Get a quote!</button>
+```
 
-https://youtu.be/LFl9gZHSEQ0
+#### Comment this code:
+- js/main.js:
+ 
+```
+try {
+  setInterval(() => {
+    getQuote();
+    changeBackgroundColor();
+  }, 5000);
+} catch (error) {
+  console.error("An error occurred in the interval:", error);
+}
+  ```
