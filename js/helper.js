@@ -4,7 +4,7 @@ export async function changeBackgroundColor() {
 
   document.documentElement.style.setProperty("--new", randomColor);
   wipeAnimation.style.backgroundPosition = "left top";
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
   document.documentElement.style.setProperty("--curr", randomColor);
   wipeAnimation.style.backgroundPosition = "right bottom";
