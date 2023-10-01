@@ -5,10 +5,20 @@
 
 import { changeBackgroundColor } from "./helper.js";
 
+// Get the Quote after the DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
   document.documentElement.style.setProperty("--new", "red");
   document.documentElement.style.setProperty("--curr", "lightblue");
   getQuote();
+  // bonus part
+  try {
+    setInterval(() => {
+      getQuote();
+      changeBackgroundColor();
+    }, 5000);
+  } catch (error) {
+    console.error("An error occurred in the interval:", error);
+  }
 });
 
 function handleCustomError(error) {
